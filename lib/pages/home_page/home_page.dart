@@ -1,6 +1,11 @@
+import 'package:coloud_cv/pages/cv_blocks/courses.dart';
+import 'package:coloud_cv/pages/cv_blocks/educations.dart';
 import 'package:coloud_cv/pages/cv_blocks/experiense.dart';
+import 'package:coloud_cv/pages/cv_blocks/languages.dart';
+import 'package:coloud_cv/pages/cv_blocks/skills.dart';
 import 'package:coloud_cv/utils/infromation_block.dart';
 import 'package:coloud_cv/utils/text_styles.dart';
+import 'package:coloud_cv/utils/url_launcher.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,109 +15,119 @@ class HomePage extends StatelessWidget {
       backgroundColor: Color(0xFFFFFFFF),
       body: Container(
         height: MediaQuery.of(context).size.height,
-        child: Row(children: [
-          Expanded(flex: 1, child: _buildLeftBlock(context)),
-          Expanded(flex: 3, child: _buildRightBlock(context)),
-          Spacer()
-        ]),
+        child: LayoutBuilder(
+          builder:(context, constraints) {
+            print(constraints.maxWidth);
+
+            return Row(children: [
+             if(constraints.maxWidth > 550) Expanded(flex: 1, child: _buildLeftBlock(context)),
+              Expanded(flex: 4, child: _buildRightBlock(context)),
+            ]);
+          }
+        ),
       ),
     );
   }
 
-  Widget _buildLeftBlock(context) => Container(
-        height: MediaQuery.of(context).size.height,
-        color: const Color(0xFF414953),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage("assets/images/avatar.jpg"),
-                      backgroundColor: Colors.transparent,
-                      minRadius: 50,
-                      maxRadius: 75,
-                    ),
-                  ),
+  Widget _buildLeftBlock(context){
+    return  Container(
+      height: MediaQuery.of(context).size.height,
+      color: const Color(0xFF414953),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/avatar.jpg"),
+                  backgroundColor: Colors.transparent,
+                  maxRadius: 75,
                 ),
-                const SizedBox(
-                  height: 20,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Text(
+                  "Flutter Junior Developer",
+                  style:
+                  INTER_THIN.copyWith(color: Colors.white, fontSize: 23),
+                  textAlign: TextAlign.center,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15),
-                  child: Text(
-                    "Flutter Junior Developer",
-                    style:
-                        INTER_THIN.copyWith(color: Colors.white, fontSize: 23),
-                    textAlign: TextAlign.center,
-                  ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  "Personal",
+                  style: INTER_MEDIUM.copyWith(
+                      color: Colors.white, fontSize: 16),
                 ),
-                const SizedBox(
-                  height: 20,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              _buildDivider(),
+              const SizedBox(
+                height: 20,
+              ),
+              _buildPersonalBlock(),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  "Languages",
+                  style: INTER_MEDIUM.copyWith(
+                      color: Colors.white, fontSize: 16),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text(
-                    "Personal",
-                    style: INTER_MEDIUM.copyWith(
-                        color: Colors.white, fontSize: 16),
-                  ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              _buildDivider(),
+              const SizedBox(
+                height: 20,
+              ),
+              _buildLanguages(),
+              const SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Text(
+                  "LinkedIn (tap or scan me)",
+                  style: INTER_MEDIUM.copyWith(
+                    color: Colors.white, fontSize: 16,),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                _buildDivider(),
-                const SizedBox(
-                  height: 20,
-                ),
-                _buildPersonalBlock(),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text(
-                    "Languages",
-                    style: INTER_MEDIUM.copyWith(
-                        color: Colors.white, fontSize: 16),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                _buildDivider(),
-                const SizedBox(
-                  height: 20,
-                ),
-                _buildLanguages(),
-                const SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: Text(
-                    "LinkedIn (tap or scan me)",
-                    style: INTER_MEDIUM.copyWith(
-                        color: Colors.white, fontSize: 16),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Center(
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: (){
+                  launchUrl("https://www.linkedin.com/in/ivan-modlo-3a8903184/");
+                },
+
+                child: Center(
                     child: Image.asset(
-                  "assets/images/qr-code.gif",
-                  width: 150,
-                  height: 150,
-                )),
-                const SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+                      "assets/images/qr-code.gif",
+                      width: 150,
+                      height: 150,
+                    )),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildPersonalBlock() => Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
@@ -131,7 +146,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildPersonalBlockWidget("English", "Intermediate"),
+            _buildPersonalBlockWidget("English", "Pre-intermediate"),
             _buildPersonalBlockWidget("Українська", "Native"),
             _buildPersonalBlockWidget("Русский", "Native"),
           ],
@@ -143,7 +158,7 @@ class HomePage extends StatelessWidget {
         color: Colors.transparent,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 25, top: 30),
+            padding: const EdgeInsets.only(left: 25, top: 30, right: 25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -162,7 +177,11 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                InformationBlock(title: "Work experience", widget: ExperienceBlock(),)
+                InformationBlock(title: "Work experience", widget: ExperienceBlock(),),
+                InformationBlock(title: "Educations", widget: Educations(),),
+                InformationBlock(title: "Languages", widget: LanguagesBlock(),),
+                InformationBlock(title: "Skills", widget: Skills(),),
+                InformationBlock(title: "Courses", widget: Courses(),),
 
               ],
             ),

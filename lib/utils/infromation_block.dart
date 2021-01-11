@@ -14,7 +14,7 @@ class InformationBlock extends StatelessWidget {
       children: [
         Text(
           "$title",
-          style: INTER_MEDIUM.copyWith(fontSize: 30),
+          style: INTER_MEDIUM.copyWith(fontSize: 25),
         ),
         const SizedBox(
           height: 10,

@@ -1,7 +1,7 @@
 import 'package:coloud_cv/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class ExperienceBlock extends StatelessWidget {
+class Courses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -12,14 +12,14 @@ class ExperienceBlock extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Flutter developer", style: INTER_MEDIUM.copyWith(fontSize: 15),),
-              Text("256 devs, Kropyvnytskyi"),
-              Text("Flutter developer on several projects"),
+              Text('Dart/Flutter course', style: INTER_MEDIUM.copyWith(fontSize: 15),),
+              Text('256 devs'),
+              Text('Dart courses for beginner developers using the Flutter SDK'),
 
             ],
           ),
         ),
-        Text('Dec 2019 - Present')
+        Text('Oct 2019 - Dec 2019')
       ],
     );
   }
