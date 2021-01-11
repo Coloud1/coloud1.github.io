@@ -3,12 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "d6b5112ed925b708313cfe6c4969ac7d",
+  "assets/AssetManifest.json": "018b7edadd4abade791f5e06f2753687",
 "assets/assets/fonts/Inter-Bold.ttf": "91e5aee8f44952c0c14475c910c89bb8",
 "assets/assets/fonts/Inter-Medium.ttf": "5ff1f2a9a78730d7d0c309320ff3c9c7",
 "assets/assets/fonts/Inter-Regular.ttf": "515cae74eee4925d56e6ac70c25fc0f6",
 "assets/assets/fonts/Inter-SemiBold.ttf": "ec60b23f3405050f546f4765a9e90fec",
 "assets/assets/fonts/Inter-Thin.ttf": "35b7cf4cc47ac526b745c7c29d885f60",
+"assets/assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
 "assets/assets/images/avatar.jpg": "f972cad8f0714046d670ab4f9fdfd969",
 "assets/assets/images/qr-code.gif": "9ebda3ba232c1071c6967384c73c11f3",
 "assets/FontManifest.json": "448b0b015df0e4830cd7dd630ecd8be9",
@@ -20,7 +21,7 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "index.html": "690b8c4aa330a83184b88e20e73b703b",
 "/": "690b8c4aa330a83184b88e20e73b703b",
-"main.dart.js": "afd832122c6034da82a6d4bb3bfefced",
+"main.dart.js": "4a91b7fc87100a9880fcca78b8e84bae",
 "manifest.json": "46938e5c702a9393e0174eb05e36dfa4",
 "version.json": "0232182f75e805868a6d20115d2e86c9"
 };
